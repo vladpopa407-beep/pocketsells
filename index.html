@@ -1,772 +1,621 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PocketSells — Ghid Vinted + Furnizori Verificați</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --navy:   #0D1B2A;
-    --navy2:  #162232;
-    --amber:  #F4A914;
-    --amber2: #FFB929;
-    --white:  #FFFFFF;
-    --light:  #F5F7FA;
-    --gray:   #8892A0;
-    --dark:   #111827;
-    --green:  #22C55E;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--white);
-    color: var(--dark);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* ─── TOPBAR ─────────────────────────────────── */
-  .topbar {
-    background: var(--amber);
-    color: var(--navy);
-    text-align: center;
-    padding: 10px 16px;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 14px;
-    letter-spacing: 0.02em;
-  }
-
-  /* ─── NAV ─────────────────────────────────────── */
-  nav {
-    background: var(--navy);
-    padding: 16px 24px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .logo {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 22px;
-    color: var(--white);
-    letter-spacing: -0.5px;
-  }
-
-  .logo span { color: var(--amber); }
-
-  .nav-cta {
-    background: var(--amber);
-    color: var(--navy);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 13px;
-    padding: 8px 18px;
-    border-radius: 6px;
-    text-decoration: none;
-    white-space: nowrap;
-  }
-
-  /* ─── HERO ─────────────────────────────────────── */
-  .hero {
-    background: var(--navy);
-    padding: 56px 24px 64px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: radial-gradient(ellipse at 50% 0%, rgba(244,169,20,0.15) 0%, transparent 70%);
-    pointer-events: none;
-  }
-
-  .hero-eyebrow {
-    display: inline-block;
-    background: rgba(244,169,20,0.15);
-    border: 1px solid rgba(244,169,20,0.3);
-    color: var(--amber);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 6px 14px;
-    border-radius: 100px;
-    margin-bottom: 24px;
-  }
-
-  .hero h1 {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: clamp(32px, 8vw, 52px);
-    color: var(--white);
-    line-height: 1.1;
-    margin-bottom: 16px;
-    letter-spacing: -1px;
-  }
-
-  .hero h1 em {
-    color: var(--amber);
-    font-style: normal;
-  }
-
-  .hero-sub {
-    font-size: 17px;
-    color: rgba(255,255,255,0.7);
-    max-width: 480px;
-    margin: 0 auto 36px;
-    line-height: 1.6;
-  }
-
-  .counter-block {
-    background: rgba(244,169,20,0.1);
-    border: 1px solid rgba(244,169,20,0.25);
-    border-radius: 16px;
-    padding: 24px 32px;
-    display: inline-block;
-    margin-bottom: 36px;
-  }
-
-  .counter-label {
-    font-size: 13px;
-    color: rgba(255,255,255,0.5);
-    letter-spacing: 0.05em;
-    margin-bottom: 6px;
-  }
-
-  .counter-number {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: clamp(48px, 12vw, 72px);
-    color: var(--amber);
-    line-height: 1;
-    letter-spacing: -2px;
-  }
-
-  .counter-suffix {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 28px;
-    color: var(--amber);
-    opacity: 0.8;
-  }
-
-  .counter-sub {
-    font-size: 13px;
-    color: rgba(255,255,255,0.45);
-    margin-top: 6px;
-  }
-
-  .btn-primary {
-    display: inline-block;
-    background: var(--amber);
-    color: var(--navy);
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    font-size: 18px;
-    padding: 18px 36px;
-    border-radius: 10px;
-    text-decoration: none;
-    transition: transform 0.15s, box-shadow 0.15s;
-    box-shadow: 0 4px 24px rgba(244,169,20,0.35);
-    width: 100%;
-    max-width: 380px;
-    text-align: center;
-    cursor: pointer;
-    border: none;
-  }
-
-  .btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 8px 32px rgba(244,169,20,0.45);
-  }
-
-  .hero-trust {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 18px;
-  }
-
-  .trust-item {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    color: rgba(255,255,255,0.5);
-    font-size: 13px;
-  }
-
-  .trust-item span.dot {
-    width: 6px;
-    height: 6px;
-    background: var(--green);
-    border-radius: 50%;
-    display: inline-block;
-  }
-
-  /* ─── SECTION SHARED ──────────────────────────── */
-  .section-inner {
-    padding: 64px 24px;
-    max-width: 600px;
-    margin: 0 auto;
-  }
-
-  .section-eyebrow {
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 12px;
-  }
-
-  .section-title {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    font-size: clamp(24px, 6vw, 36px);
-    line-height: 1.15;
-    letter-spacing: -0.5px;
-    margin-bottom: 28px;
-  }
-
-  /* ─── PAIN ─────────────────────────────────────── */
-  .pain-bg { background: var(--light); }
-
-  .pain-cards {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .pain-card {
-    background: var(--white);
-    border-radius: 12px;
-    padding: 20px;
-    display: flex;
-    gap: 14px;
-    align-items: flex-start;
-    border: 1px solid #E5E7EB;
-  }
-
-  .pain-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
-
-  .pain-card strong {
-    display: block;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 4px;
-    color: var(--dark);
-  }
-
-  .pain-card p { font-size: 14px; color: var(--gray); line-height: 1.5; }
-
-  /* ─── WHAT'S INSIDE ────────────────────────────── */
-  .inside-grid {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-  }
-
-  .inside-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    padding: 18px;
-    border: 1.5px solid #E5E7EB;
-    border-radius: 12px;
-    transition: border-color 0.2s;
-  }
-
-  .inside-item:hover { border-color: var(--amber); }
-
-  .inside-check {
-    width: 28px;
-    height: 28px;
-    background: rgba(244,169,20,0.12);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-shrink: 0;
-    font-size: 13px;
-    color: var(--amber);
-    font-weight: 700;
-  }
-
-  .inside-item strong {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    display: block;
-    margin-bottom: 3px;
-  }
-
-  .inside-item p { font-size: 13px; color: var(--gray); line-height: 1.5; }
-
-  /* ─── PROOF ─────────────────────────────────────── */
-  .proof-bg { background: var(--navy); }
-
-  .proof-bg .section-title { color: var(--white); }
-
-  .testimonials {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .testimonial {
-    background: var(--navy2);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 20px;
-  }
-
-  .testimonial-text {
-    color: rgba(255,255,255,0.85);
-    font-size: 15px;
-    line-height: 1.6;
-    margin-bottom: 14px;
-  }
-
-  .testimonial-footer {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .testimonial-avatar {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    background: var(--amber);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    font-size: 14px;
-    color: var(--navy);
-    flex-shrink: 0;
-  }
-
-  .testimonial-name { font-weight: 600; font-size: 14px; color: var(--white); }
-  .testimonial-meta { font-size: 12px; color: rgba(255,255,255,0.4); }
-  .stars { color: var(--amber); font-size: 13px; margin-left: auto; }
-
-  /* ─── OFFER ─────────────────────────────────────── */
-  .offer-box {
-    background: var(--navy);
-    border-radius: 20px;
-    padding: 36px 28px;
-    text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .offer-box::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 3px;
-    background: linear-gradient(90deg, var(--amber), var(--amber2));
-  }
-
-  .offer-badge {
-    display: inline-block;
-    background: rgba(34,197,94,0.15);
-    border: 1px solid rgba(34,197,94,0.3);
-    color: var(--green);
-    font-size: 12px;
-    font-weight: 600;
-    padding: 5px 12px;
-    border-radius: 100px;
-    margin-bottom: 16px;
-    letter-spacing: 0.05em;
-  }
-
-  .offer-title {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 28px;
-    color: var(--white);
-    margin-bottom: 8px;
-    letter-spacing: -0.5px;
-  }
-
-  .offer-price {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 900;
-    font-size: 64px;
-    color: var(--amber);
-    line-height: 1;
-    letter-spacing: -2px;
-    margin: 16px 0 4px;
-  }
-
-  .offer-price-label {
-    font-size: 14px;
-    color: rgba(255,255,255,0.4);
-    margin-bottom: 28px;
-  }
-
-  .offer-includes {
-    text-align: left;
-    margin: 0 0 28px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  .offer-line {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 15px;
-    color: rgba(255,255,255,0.8);
-  }
-
-  .offer-line .chk { color: var(--green); font-size: 16px; flex-shrink: 0; }
-
-  .guarantee {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    background: rgba(255,255,255,0.04);
-    border-radius: 10px;
-    padding: 14px 16px;
-    text-align: left;
-  }
-
-  .guarantee-icon { font-size: 28px; flex-shrink: 0; }
-
-  .guarantee-text { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.5; }
-
-  .guarantee-text strong {
-    color: rgba(255,255,255,0.8);
-    display: block;
-    margin-bottom: 2px;
-    font-size: 14px;
-  }
-
-  /* ─── FAQ ─────────────────────────────────────── */
-  .faq-list { display: flex; flex-direction: column; gap: 12px; }
-
-  .faq-item {
-    border: 1px solid #E5E7EB;
-    border-radius: 12px;
-    overflow: hidden;
-  }
-
-  .faq-q {
-    padding: 16px 20px;
-    font-family: 'Outfit', sans-serif;
-    font-weight: 700;
-    font-size: 15px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 12px;
-    user-select: none;
-  }
-
-  .faq-q .toggle {
-    font-size: 20px;
-    flex-shrink: 0;
-    color: var(--amber);
-    transition: transform 0.2s;
-    line-height: 1;
-  }
-
-  .faq-q.open .toggle { transform: rotate(45deg); }
-
-  .faq-a {
-    padding: 0 20px;
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.2s;
-    font-size: 14px;
-    color: var(--gray);
-    line-height: 1.7;
-  }
-
-  .faq-a.open { max-height: 200px; padding: 0 20px 16px; }
-
-  /* ─── FOOTER ──────────────────────────────────── */
-  footer {
-    background: var(--navy);
-    text-align: center;
-    padding: 32px 24px;
-    color: rgba(255,255,255,0.3);
-    font-size: 13px;
-  }
-
-  footer .logo { margin-bottom: 8px; font-size: 18px; }
-
-  footer a { color: inherit; text-decoration: none; }
-  footer a:hover { color: rgba(255,255,255,0.6); }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PocketSells — Ghid Vinted + Furnizori Verificați</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --surface2: #1c1c1c;
+      --border: #2a2a2a;
+      --text: #f0f0f0;
+      --muted: #888;
+      --accent: #f5c518;
+      --accent-dim: #c9a010;
+      --green: #22c55e;
+      --radius: 14px;
+      --max: 700px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── Announcement bar ── */
+    .bar {
+      background: var(--accent);
+      color: #000;
+      text-align: center;
+      padding: 10px 20px;
+      font-size: 13.5px;
+      font-weight: 600;
+      letter-spacing: .02em;
+    }
+
+    /* ── Nav ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 22px 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-size: 20px;
+      font-weight: 800;
+      letter-spacing: -.5px;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .logo span { color: var(--accent); }
+
+    /* ── Sections ── */
+    section { padding: 80px 24px; }
+    .container { max-width: var(--max); margin: 0 auto; }
+
+    /* ── Hero ── */
+    .hero { text-align: center; padding-top: 90px; padding-bottom: 90px; }
+    .hero-eyebrow {
+      display: inline-block;
+      background: rgba(245,197,24,.12);
+      color: var(--accent);
+      border: 1px solid rgba(245,197,24,.3);
+      border-radius: 100px;
+      font-size: 12.5px;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-size: clamp(34px, 6vw, 54px);
+      font-weight: 900;
+      line-height: 1.12;
+      letter-spacing: -.03em;
+      margin-bottom: 20px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero p {
+      font-size: 18px;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 40px;
+    }
+
+    /* ── Stat ── */
+    .stat-box {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px 40px;
+      margin-bottom: 40px;
+    }
+    .stat-label { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 6px; }
+    .stat-value { font-size: 42px; font-weight: 900; color: var(--accent); letter-spacing: -.02em; }
+    .stat-sub { font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: #000;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 16px 32px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background .15s, transform .1s;
+      letter-spacing: -.01em;
+    }
+    .btn:hover { background: var(--accent-dim); transform: translateY(-1px); }
+    .btn:active { transform: none; }
+
+    .trust {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    .trust span::before { content: '✓ '; color: var(--green); font-weight: 700; }
+
+    /* ── Section headings ── */
+    .eyebrow {
+      display: block;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .1em;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    h2 {
+      font-size: clamp(26px, 4vw, 38px);
+      font-weight: 900;
+      letter-spacing: -.03em;
+      line-height: 1.15;
+      margin-bottom: 48px;
+    }
+    h2 em { font-style: normal; color: var(--accent); }
+
+    /* ── Pain cards ── */
+    .pain-grid { display: flex; flex-direction: column; gap: 16px; }
+    .pain-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+    }
+    .pain-icon { font-size: 28px; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+    .pain-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 6px; }
+    .pain-card p { font-size: 14.5px; color: var(--muted); line-height: 1.55; }
+
+    /* ── Benefit cards ── */
+    .benefit-grid { display: flex; flex-direction: column; gap: 14px; }
+    .benefit-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--green);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+    .check { color: var(--green); font-weight: 900; font-size: 18px; flex-shrink: 0; margin-top: 2px; }
+    .benefit-card h3 { font-size: 15.5px; font-weight: 700; margin-bottom: 4px; }
+    .benefit-card p { font-size: 14px; color: var(--muted); }
+
+    /* ── Testimonials ── */
+    .testi-grid { display: flex; flex-direction: column; gap: 16px; }
+    .testi-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 26px;
+    }
+    .testi-text { font-size: 15px; line-height: 1.65; color: #ddd; margin-bottom: 18px; font-style: italic; }
+    .testi-text::before { content: '"'; }
+    .testi-text::after { content: '"'; }
+    .testi-footer { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--accent);
+      color: #000;
+      font-size: 14px;
+      font-weight: 800;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .testi-name { font-size: 14px; font-weight: 700; }
+    .testi-role { font-size: 12.5px; color: var(--muted); }
+    .stars { color: var(--accent); font-size: 13px; margin-top: 2px; }
+
+    /* ── Pricing ── */
+    .pricing-wrap { display: flex; justify-content: center; }
+    .pricing-card {
+      background: var(--surface);
+      border: 2px solid var(--accent);
+      border-radius: 18px;
+      padding: 40px;
+      width: 100%;
+      max-width: 480px;
+      position: relative;
+      overflow: hidden;
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 160px; height: 160px;
+      background: radial-gradient(circle, rgba(245,197,24,.12), transparent 70%);
+      border-radius: 50%;
+    }
+    .pricing-badge {
+      display: inline-block;
+      background: rgba(245,197,24,.15);
+      color: var(--accent);
+      border: 1px solid rgba(245,197,24,.4);
+      border-radius: 100px;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      margin-bottom: 20px;
+    }
+    .pricing-title { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+    .pricing-price {
+      font-size: 56px;
+      font-weight: 900;
+      letter-spacing: -.04em;
+      color: var(--accent);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .pricing-price .currency {
+      font-size: 22px;
+      font-weight: 700;
+      vertical-align: super;
+      margin-right: 2px;
+    }
+    .pricing-sub { font-size: 13px; color: var(--muted); margin-bottom: 28px; }
+    .pricing-divider { height: 1px; background: var(--border); margin: 24px 0; }
+    .pricing-features { list-style: none; display: flex; flex-direction: column; gap: 12px; margin-bottom: 32px; }
+    .pricing-features li { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; }
+    .pricing-features li::before { content: '✓'; color: var(--green); font-weight: 900; flex-shrink: 0; margin-top: 1px; }
+    .pricing-btn {
+      display: block;
+      text-align: center;
+      background: var(--accent);
+      color: #000;
+      font-size: 16px;
+      font-weight: 800;
+      padding: 17px 24px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background .15s, transform .1s;
+      letter-spacing: -.01em;
+    }
+    .pricing-btn:hover { background: var(--accent-dim); transform: translateY(-1px); }
+
+    /* ── Guarantee ── */
+    .guarantee {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      margin-top: 20px;
+    }
+    .guarantee-icon { font-size: 28px; flex-shrink: 0; }
+    .guarantee h4 { font-size: 14.5px; font-weight: 700; margin-bottom: 4px; }
+    .guarantee p { font-size: 13.5px; color: var(--muted); }
+
+    /* ── FAQ ── */
+    .faq { display: flex; flex-direction: column; gap: 0; }
+    .faq-item { border-bottom: 1px solid var(--border); }
+    .faq-q {
+      width: 100%;
+      background: none;
+      border: none;
+      color: var(--text);
+      font-size: 15px;
+      font-weight: 600;
+      text-align: left;
+      padding: 20px 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+    .faq-q:hover { color: var(--accent); }
+    .faq-icon { font-size: 20px; color: var(--muted); transition: transform .2s; flex-shrink: 0; }
+    .faq-a {
+      display: none;
+      padding: 0 0 20px;
+      font-size: 14.5px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-icon { transform: rotate(45deg); }
+
+    /* ── Footer ── */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 24px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+    footer .footer-logo { font-size: 16px; font-weight: 800; color: var(--text); margin-bottom: 10px; }
+    footer .footer-logo span { color: var(--accent); }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--text); }
+    footer .footer-links { display: flex; gap: 16px; justify-content: center; margin-top: 8px; }
+
+    @media (max-width: 480px) {
+      section { padding: 60px 18px; }
+      .pricing-card { padding: 28px 22px; }
+      .stat-box { padding: 20px 28px; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- TOPBAR -->
-<div class="topbar">🎁 100% GRATUIT — Ghid + Furnizori Verificați · Acces instant după înregistrare</div>
-
-<!-- NAV -->
-<nav>
-  <div class="logo">Pocket<span>Sells</span></div>
-  <a href="https://pocketsells.com/products/pachetul-complet-pentru-afacerea-ta-de-reselling-3-e-book-uri-expert-10-furnizori-verifica%C8%9Bi-de-lux-vinted-moda-accesorii-designer" class="nav-cta">Vreau ghidul →</a>
-</nav>
-
-<!-- HERO -->
-<div class="hero">
-  <div style="position:relative; z-index:1;">
-    <div class="hero-eyebrow">Singurul ghid de care ai nevoie</div>
-    <h1>Cum faci primii<br><em>1.000 RON</em><br>pe Vinted</h1>
-    <p class="hero-sub">Sistemul complet cu furnizori verificați din România și Europa — fără experiență, fără investiție mare.</p>
-
-    <div class="counter-block">
-      <div class="counter-label">câștig mediu după ghid</div>
-      <div>
-        <span class="counter-number" id="counter">0</span>
-        <span class="counter-suffix"> RON</span>
-      </div>
-      <div class="counter-sub">raportat de clienții noștri în prima lună</div>
-    </div>
-
-    <br>
-    <a href="https://pocketsells.com/products/pachetul-complet-pentru-afacerea-ta-de-reselling-3-e-book-uri-expert-10-furnizori-verifica%C8%9Bi-de-lux-vinted-moda-accesorii-designer" class="btn-primary">Vreau ghidul acum — GRATUIT →</a>
-
-    <div class="hero-trust">
-      <span class="trust-item"><span class="dot"></span>Livrare instant</span>
-      <span class="trust-item"><span class="dot"></span>Acces pe viață</span>
-      <span class="trust-item"><span class="dot"></span>Fără card necesar</span>
-    </div>
-  </div>
+<!-- Announcement bar -->
+<div class="bar">
+  🎁 39.50 RON — Ghid + Furnizori Verificați · Acces instant după plată
 </div>
 
-<!-- PAIN -->
-<div class="pain-bg">
-  <div class="section-inner">
-    <div class="section-eyebrow">Sună familiar?</div>
-    <h2 class="section-title">De ce nu câștigă<br>cei mai mulți pe Vinted</h2>
-    <div class="pain-cards">
+<!-- Nav -->
+<nav>
+  <a href="#" class="logo">Pocket<span>Sells</span></a>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="container">
+    <span class="hero-eyebrow">Singurul ghid de care ai nevoie</span>
+    <h1>Cum faci primii<br><em>1.000 RON</em><br>pe Vinted</h1>
+    <p>Sistemul complet cu furnizori verificați din România și Europa — fără experiență, fără investiție mare.</p>
+
+    <div class="stat-box">
+      <span class="stat-label">câștig mediu după ghid</span>
+      <span class="stat-value" id="counter">0 RON</span>
+      <span class="stat-sub">raportat de clienții noștri în prima lună</span>
+    </div>
+
+    <div>
+      <a href="https://pocketsells.com/products/pachetul-complet-pentru-afacerea-ta-de-reselling-3-e-book-uri-expert-10-furnizori-verifica%C8%9Bi-de-lux-vinted-moda-accesorii-designer" class="btn">
+        Vreau ghidul acum — 39.50 RON →
+      </a>
+    </div>
+    <div class="trust">
+      <span>Livrare instant</span>
+      <span>Acces pe viață</span>
+      <span>Plată sigură</span>
+    </div>
+  </div>
+</section>
+
+<!-- Pain points -->
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <span class="eyebrow">Sună familiar?</span>
+    <h2>De ce nu câștigă<br><em>cei mai mulți</em> pe Vinted</h2>
+    <div class="pain-grid">
       <div class="pain-card">
         <div class="pain-icon">😓</div>
         <div>
-          <strong>Cumperi de pe Temu sau AliExpress</strong>
+          <h3>Cumperi de pe Temu sau AliExpress</h3>
           <p>Aștepți 3–6 săptămâni la livrare. Produsele ajung deteriorate sau diferite față de poze. Pierzi timp și bani.</p>
         </div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">🔍</div>
         <div>
-          <strong>Nu știi ce să vinzi și la ce preț</strong>
+          <h3>Nu știi ce să vinzi și la ce preț</h3>
           <p>Cumperi produse care nu se mișcă, stai cu stoc mort și renunți după câteva luni fără profit real.</p>
         </div>
       </div>
       <div class="pain-card">
         <div class="pain-icon">❌</div>
         <div>
-          <strong>Furnizorii găsiți online sunt prea scumpi</strong>
+          <h3>Furnizorii găsiți online sunt prea scumpi</h3>
           <p>La prețurile angro de pe Google nu există marjă. Vinzi mult și câștigi puțin — sau nimic.</p>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- WHAT'S INSIDE -->
-<div class="section-inner">
-  <div class="section-eyebrow">Ce primești</div>
-  <h2 class="section-title">Tot ce ai nevoie<br>ca să începi azi</h2>
-  <div class="inside-grid">
-    <div class="inside-item">
-      <div class="inside-check">✓</div>
-      <div>
-        <strong>Ghidul complet Vinted — pas cu pas</strong>
-        <p>De la setarea contului la primele vânzări. Cum fotografiezi, cum stabilești prețul, cum gestionezi comenzile fără stres.</p>
-      </div>
-    </div>
-    <div class="inside-item">
-      <div class="inside-check">✓</div>
-      <div>
-        <strong>Lista furnizorilor mei verificați</strong>
-        <p>Furnizori angro din România și UE cu prețuri reale, MOQ mic și livrare rapidă. Nu îi găsești pe Google.</p>
-      </div>
-    </div>
-    <div class="inside-item">
-      <div class="inside-check">✓</div>
-      <div>
-        <strong>Categoriile câștigătoare pe Vinted.ro</strong>
-        <p>Ce produse se vând cel mai bine în 2025, la ce marje, și cum eviți produsele care stau blocate în stoc.</p>
-      </div>
-    </div>
-    <div class="inside-item">
-      <div class="inside-check">✓</div>
-      <div>
-        <strong>Template-uri de anunțuri care vând</strong>
-        <p>Titluri și descrieri optimizate pentru algoritmul Vinted. Copy-paste și gata.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- PROOF -->
-<div class="proof-bg">
-  <div class="section-inner">
-    <div class="section-eyebrow">Rezultate reale</div>
-    <h2 class="section-title">Ce spun cei care<br>au luat ghidul</h2>
-    <div class="testimonials">
-      <div class="testimonial">
-        <p class="testimonial-text">"Am luat ghidul joi seara și duminică deja aveam primele comenzi. Am câștigat 340 RON în primul weekend — cu bani din buzunar puși pe stoc."</p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">AM</div>
-          <div>
-            <div class="testimonial-name">Alexandra M.</div>
-            <div class="testimonial-meta">Cluj-Napoca · Vinted seller</div>
-          </div>
-          <div class="stars">★★★★★</div>
+<!-- Benefits -->
+<section>
+  <div class="container">
+    <span class="eyebrow">Ce primești</span>
+    <h2>Tot ce ai nevoie<br><em>ca să începi azi</em></h2>
+    <div class="benefit-grid">
+      <div class="benefit-card">
+        <div class="check">✓</div>
+        <div>
+          <h3>Ghidul complet Vinted — pas cu pas</h3>
+          <p>De la setarea contului la primele vânzări. Cum fotografiezi, cum stabilești prețul, cum gestionezi comenzile fără stres.</p>
         </div>
       </div>
-      <div class="testimonial">
-        <p class="testimonial-text">"Lista de furnizori singură valorează de 10x prețul ghidului. Eu o cumpărasem anterior de la altcineva cu 200 RON și nu era nici pe departe la fel de detaliată."</p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">RD</div>
-          <div>
-            <div class="testimonial-name">Radu D.</div>
-            <div class="testimonial-meta">București · Reseller activ</div>
-          </div>
-          <div class="stars">★★★★★</div>
+      <div class="benefit-card">
+        <div class="check">✓</div>
+        <div>
+          <h3>Lista furnizorilor mei verificați</h3>
+          <p>Furnizori angro din România și UE cu prețuri reale, MOQ mic și livrare rapidă. Nu îi găsești pe Google.</p>
         </div>
       </div>
-      <div class="testimonial">
-        <p class="testimonial-text">"Nu avusesem niciodată vânzări online. După 3 săptămâni cu sistemul din ghid am ajuns la 1.100 RON profit net. Acum comand săptămânal de la furnizorii din listă."</p>
-        <div class="testimonial-footer">
-          <div class="testimonial-avatar">IC</div>
-          <div>
-            <div class="testimonial-name">Ioana C.</div>
-            <div class="testimonial-meta">Iași · Începătoare</div>
-          </div>
-          <div class="stars">★★★★★</div>
+      <div class="benefit-card">
+        <div class="check">✓</div>
+        <div>
+          <h3>Categoriile câștigătoare pe Vinted.ro</h3>
+          <p>Ce produse se vând cel mai bine în 2025, la ce marje, și cum eviți produsele care stau blocate în stoc.</p>
+        </div>
+      </div>
+      <div class="benefit-card">
+        <div class="check">✓</div>
+        <div>
+          <h3>Template-uri de anunțuri care vând</h3>
+          <p>Titluri și descrieri optimizate pentru algoritmul Vinted. Copy-paste și gata.</p>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- OFFER -->
-<div class="section-inner" id="oferta">
-  <div class="offer-box">
-    <div class="offer-badge">🎁 100% Gratuit · Acces instant</div>
-    <div class="offer-title">Pachetul PocketSells</div>
-    <div class="offer-price" style="color:var(--green); font-size:56px;">GRATUIT</div>
-    <div class="offer-price-label">100% gratuit · fără card necesar</div>
-
-    <div class="offer-includes">
-      <div class="offer-line"><span class="chk">✓</span> Ghid complet Vinted (PDF, 40+ pagini)</div>
-      <div class="offer-line"><span class="chk">✓</span> Lista furnizorilor verificați (actualizată 2025)</div>
-      <div class="offer-line"><span class="chk">✓</span> Categorii câștigătoare + strategii de preț</div>
-      <div class="offer-line"><span class="chk">✓</span> Template-uri anunțuri gata de folosit</div>
-      <div class="offer-line"><span class="chk">✓</span> Acces pe viață + update-uri gratuite</div>
+<!-- Testimonials -->
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <span class="eyebrow">Rezultate reale</span>
+    <h2>Ce spun cei care<br><em>au luat ghidul</em></h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <p class="testi-text">Am luat ghidul joi seara și duminică deja aveam primele comenzi. Am câștigat 340 RON în primul weekend — cu bani din buzunar puși pe stoc.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar">AM</div>
+          <div>
+            <div class="testi-name">Alexandra M.</div>
+            <div class="testi-role">Cluj-Napoca · Vinted seller</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">Lista de furnizori singură valorează de 10x prețul ghidului. Eu o cumpărasem anterior de la altcineva cu 200 RON și nu era nici pe departe la fel de detaliată.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar">RD</div>
+          <div>
+            <div class="testi-name">Radu D.</div>
+            <div class="testi-role">București · Reseller activ</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
+      <div class="testi-card">
+        <p class="testi-text">Nu avusesem niciodată vânzări online. După 3 săptămâni cu sistemul din ghid am ajuns la 1.100 RON profit net. Acum comand săptămânal de la furnizorii din listă.</p>
+        <div class="testi-footer">
+          <div class="testi-avatar">IC</div>
+          <div>
+            <div class="testi-name">Ioana C.</div>
+            <div class="testi-role">Iași · Începătoare</div>
+            <div class="stars">★★★★★</div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <a href="https://pocketsells.com/products/pachetul-complet-pentru-afacerea-ta-de-reselling-3-e-book-uri-expert-10-furnizori-verifica%C8%9Bi-de-lux-vinted-moda-accesorii-designer" class="btn-primary" style="max-width:100%;">Vreau ghidul acum — GRATUIT →</a>
-
-    <div class="guarantee">
+<!-- Pricing -->
+<section>
+  <div class="container">
+    <span class="eyebrow">Pachetul PocketSells</span>
+    <h2 style="margin-bottom: 36px;">Investiția ta</h2>
+    <div class="pricing-wrap">
+      <div class="pricing-card">
+        <div class="pricing-badge">🎁 Acces instant</div>
+        <div class="pricing-title">Pachetul PocketSells</div>
+        <div class="pricing-price">
+          <span class="currency">RON</span>39.50
+        </div>
+        <div class="pricing-sub">plată unică · acces pe viață · livrare instant</div>
+        <div class="pricing-divider"></div>
+        <ul class="pricing-features">
+          <li>Ghid complet Vinted (PDF, 40+ pagini)</li>
+          <li>Lista furnizorilor verificați (actualizată 2025)</li>
+          <li>Categorii câștigătoare + strategii de preț</li>
+          <li>Template-uri anunțuri gata de folosit</li>
+          <li>Acces pe viață + update-uri gratuite</li>
+        </ul>
+        <a href="https://pocketsells.com/products/pachetul-complet-pentru-afacerea-ta-de-reselling-3-e-book-uri-expert-10-furnizori-verifica%C8%9Bi-de-lux-vinted-moda-accesorii-designer" class="pricing-btn">
+          Vreau ghidul acum — 39.50 RON →
+        </a>
+      </div>
+    </div>
+    <div class="guarantee" style="max-width: 480px; margin: 20px auto 0;">
       <div class="guarantee-icon">🛡️</div>
-      <div class="guarantee-text">
-        <strong>Zero riscuri — conținut 100% gratuit</strong>
-        Nu dai niciun ban, nu introduci niciun card. Primești ghidul complet instant, fără nicio obligație.
+      <div>
+        <h4>Zero riscuri — plată unică, acces pe viață</h4>
+        <p>Plătești o singură dată 39.50 RON și primești ghidul complet instant, cu update-uri gratuite pentru totdeauna.</p>
       </div>
     </div>
   </div>
-</div>
+</section>
 
 <!-- FAQ -->
-<div class="section-inner">
-  <div class="section-eyebrow">Întrebări frecvente</div>
-  <h2 class="section-title">Ai o întrebare?</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Trebuie experiență anterioară în vânzări online?
-        <span class="toggle">+</span>
+<section style="background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div class="container">
+    <span class="eyebrow">Întrebări frecvente</span>
+    <h2>Ai o întrebare?</h2>
+    <div class="faq">
+      <div class="faq-item">
+        <button class="faq-q">
+          Trebuie experiență anterioară în vânzări online?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Nu. Ghidul este construit special pentru persoane fără experiență. Mergem de la zero: cont Vinted, primele produse, primele comenzi.</div>
       </div>
-      <div class="faq-a">Nu. Ghidul este construit special pentru persoane fără experiență. Mergem de la zero: cont Vinted, primele produse, primele comenzi.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Cât de repede primesc accesul?
-        <span class="toggle">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          Cât de repede primesc accesul?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Instant după plată. Primești un email cu linkul de descărcare în mai puțin de 5 minute.</div>
       </div>
-      <div class="faq-a">Instant după înregistrare. Primești un email cu linkul de descărcare în mai puțin de 5 minute.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Cu cât trebuie să încep? Am nevoie de mult capital?
-        <span class="toggle">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          Cu cât trebuie să încep? Am nevoie de mult capital?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Poți începe cu 200–300 RON în stoc. Furnizorii din listă au MOQ mic, exact pentru cei care vor să testeze fără risc mare.</div>
       </div>
-      <div class="faq-a">Poți începe cu 200–300 RON în stoc. Furnizorii din listă au MOQ mic, exact pentru cei care vor să testeze fără risc mare.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">
-        Funcționează și în 2025 sau e depășit?
-        <span class="toggle">+</span>
+      <div class="faq-item">
+        <button class="faq-q">
+          Funcționează și în 2025 sau e depășit?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ghidul și lista de furnizori sunt actualizate la zi pentru 2025. Primești update-uri gratuite ori de câte ori se schimbă ceva relevant.</div>
       </div>
-      <div class="faq-a">Ghidul și lista de furnizori sunt actualizate la zi pentru 2025. Primești update-uri gratuite ori de câte ori se schimbă ceva relevant.</div>
     </div>
   </div>
-</div>
+</section>
 
-<!-- FOOTER -->
+<!-- Footer -->
 <footer>
-  <div class="logo">Pocket<span style="color:var(--amber)">Sells</span></div>
-  <p>© 2025 PocketSells · Toate drepturile rezervate</p>
-  <p style="margin-top:6px;">
-    <a href="#">Politică de confidențialitate</a> · <a href="#">Termeni și condiții</a>
-  </p>
+  <div class="footer-logo">Pocket<span>Sells</span></div>
+  <div>© 2025 PocketSells · Toate drepturile rezervate</div>
+  <div class="footer-links">
+    <a href="#">Politică de confidențialitate</a>
+    <a href="#">Termeni și condiții</a>
+  </div>
 </footer>
 
 <script>
-  function animateCounter(target, duration) {
+  // Animated counter
+  (function () {
     const el = document.getElementById('counter');
+    const target = 1847;
+    const duration = 2000;
     const start = performance.now();
-    function update(now) {
-      const progress = Math.min((now - start) / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 4);
-      el.textContent = Math.round(ease * target).toLocaleString('ro-RO');
-      if (progress < 1) requestAnimationFrame(update);
+    function step(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const ease = 1 - Math.pow(1 - t, 3);
+      el.textContent = Math.floor(ease * target).toLocaleString('ro-RO') + ' RON';
+      if (t < 1) requestAnimationFrame(step);
     }
-    requestAnimationFrame(update);
-  }
+    // Start counter when in view
+    const obs = new IntersectionObserver(entries => {
+      if (entries[0].isIntersecting) { requestAnimationFrame(step); obs.disconnect(); }
+    }, { threshold: 0.5 });
+    obs.observe(el);
+  })();
 
-  const obs = new IntersectionObserver(entries => {
-    entries.forEach(e => {
-      if (e.isIntersecting) { animateCounter(1247, 2200); obs.disconnect(); }
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const wasOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!wasOpen) item.classList.add('open');
     });
-  }, { threshold: 0.3 });
-
-  obs.observe(document.querySelector('.counter-block'));
-
-  function toggleFaq(el) {
-    el.classList.toggle('open');
-    el.nextElementSibling.classList.toggle('open');
-  }
+  });
 </script>
+
 </body>
 </html>
