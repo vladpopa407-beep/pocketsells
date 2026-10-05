@@ -103,6 +103,24 @@ nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,0.95);backdrop-filte
 .feature-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
 .feature-tag{background:rgba(201,168,76,0.1);border:1px solid rgba(201,168,76,0.2);color:var(--gold);font-size:11px;padding:3px 10px;border-radius:100px}
 
+/* BONUS CONTENT */
+.bonuses-section{padding:70px 24px;background:var(--bg)}
+.bonuses-section .container{max-width:860px;margin:0 auto}
+.bonuses-section h2{font-family:'Bebas Neue',sans-serif;font-size:clamp(32px,6vw,52px);line-height:1.1;margin-bottom:16px}
+.bonuses-section h2 em{font-style:normal;color:var(--gold)}
+.bonuses-section .subtitle{color:#aaa;font-size:15px;line-height:1.7;margin-bottom:32px;max-width:720px}
+.bonuses-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;align-items:start}
+.bonus-card{background:var(--surface);border:1px solid rgba(201,168,76,0.25);border-radius:var(--radius);padding:24px}
+.bonus-card h3{font-size:16px;color:var(--gold-light);margin-bottom:18px}
+.bonus-card ol{padding-left:25px;display:grid;gap:16px}
+.bonus-card li{padding-left:4px;font-size:14px;color:#ccc;line-height:1.5}
+.bonus-card li::marker{color:var(--gold);font-weight:700}
+.bonus-card li strong{display:block;font-size:14px;font-weight:600;color:var(--white);margin-bottom:4px}
+.bonus-card li span{display:block;color:#888;font-size:12px;line-height:1.6}
+.bonuses-note{margin-top:28px;color:#aaa;font-size:14px;line-height:1.7;text-align:center}
+.bonuses-note strong{color:var(--gold-light)}
+@media(max-width:600px){.bonuses-grid{grid-template-columns:1fr}.bonus-card{padding:22px 20px}}
+
 /* STATS DIVIDER */
 .stats-divider{padding:60px 24px;text-align:center;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
 .stats-divider .container{max-width:860px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:40px}
@@ -191,7 +209,7 @@ nav{position:sticky;top:0;z-index:100;background:rgba(8,8,8,0.95);backdrop-filte
 .final-trust{margin-top:20px;font-size:13px;color:var(--muted)}
 
 /* FREE EBOOKS */
-.free-ebooks{margin-top:28px;font-size:13px}
+.free-ebooks{font-size:13px;text-align:center;max-width:100%}
 .free-ebooks summary{display:inline-block;list-style:none;cursor:pointer;padding:8px 14px;border:1px solid var(--border);border-radius:6px;color:#aaa;font-size:12px;font-weight:500}
 .free-ebooks summary::-webkit-details-marker{display:none}
 .free-ebooks summary:hover{color:var(--gold-light);border-color:var(--gold-dim)}
@@ -225,7 +243,7 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
 
 <!-- ANNOUNCEMENT BAR -->
 <div class="ann-bar">
-  🎁 Furnizori verificați personal + ghiduri BONUS incluse gratuit în pachet
+  🎁 Furnizori verificați personal + 33 bonusuri practice incluse în ebook-urile pachetului
 </div>
 
 <!-- NAV -->
@@ -236,9 +254,9 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-eyebrow">Furnizori Verificați + Ghiduri BONUS · 2026</div>
+  <div class="hero-eyebrow">Furnizori Verificați + 33 Bonusuri Practice · 2026</div>
   <h1>Cum faci primii <em>1.245 RON</em> pe Vinted & eBay</h1>
-  <p class="hero-sub">Furnizori verificați personal de mine, cu bani reali, plus ghiduri complete Vinted &amp; eBay <strong>BONUS, incluse gratuit</strong>. Fără experiență, fără stoc din China, fără risc.</p>
+  <p class="hero-sub">Furnizori verificați personal de mine, cu bani reali, plus ghiduri complete Vinted &amp; eBay <strong>BONUS, incluse gratuit, cu 33 de bonusuri practice în interior</strong>: prețuri, produse, listări, fotografii și scalare. Fără experiență, fără stoc din China, fără risc.</p>
   <div class="stat-row">
     <div class="stat-item">
       <div class="stat-number">1.245</div>
@@ -257,6 +275,13 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
     <a class="btn-primary" href="https://stan.store/pocketsells/p/pachetul-complet-pentru-afacerea-ta-de-reselling">
       Vreau pachetul complet, 197.89 RON →
     </a>
+    <details class="free-ebooks">
+      <summary>Vezi cele 2 ebook-uri gratuite</summary>
+      <div class="free-ebooks-links">
+        <a href="https://stan.store/pocketsells/p/ebook-incepatori" target="_blank" rel="noopener noreferrer">Ebook pentru începători →</a>
+        <a href="https://stan.store/pocketsells/p/-ebook-de-la-0-la-primii-1000-ron" target="_blank" rel="noopener noreferrer">Ebook: De la 0 la primii 1.000 RON →</a>
+      </div>
+    </details>
     <div class="hero-trust">
       <span>✓ Livrare instant</span>
       <span>✓ Acces pe viață</span>
@@ -294,7 +319,7 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
   <div class="container">
     <div class="section-eyebrow" style="text-align:center">Ce primești</div>
     <h2>Tot ce ai nevoie <em style="color:var(--gold)">ca să începi azi</em></h2>
-    <p class="subtitle">Furnizorii sunt inima pachetului. Ghidurile, categoriile câștigătoare și template-urile vin <strong style="color:var(--gold)">BONUS, gratuit</strong>, ca să știi exact ce și cum să vinzi.</p>
+    <p class="subtitle">Furnizorii sunt inima pachetului. Primești și ghidurile BONUS, gratuit, cu <strong style="color:var(--gold)">33 de bonusuri practice incluse în conținutul ebook-urilor</strong>, ca să știi exact ce și cum să vinzi.</p>
     <div class="features-list">
       <div class="feature-item reveal">
         <div class="feature-check">✦</div>
@@ -312,7 +337,7 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
       <div class="feature-item reveal">
         <div class="feature-check">✦</div>
         <div class="feature-content">
-          <h3>🎁 BONUS: 3 Ghiduri Complete Vinted & eBay (PDF, 40+ pagini)</h3>
+          <h3>🎁 BONUS: 3 Ghiduri Complete Vinted & eBay, cu 33 de bonusuri practice în interior</h3>
           <p>Incluse GRATUIT alături de toți furnizorii. De la zero: cum îți setezi contul să apară primul, cum fotografiezi produsele, cum stabilești prețul, cum gestionezi comenzile și clienții dificili. Plus strategii eBay pentru a vinde în toată Europa, nu doar în România.</p>
           <div class="feature-tags">
             <span class="feature-tag">Vinted.ro</span>
@@ -347,6 +372,81 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
   </div>
 </section>
 
+<!-- BONUS CONTENT -->
+<section class="bonuses-section" id="bonusuri">
+  <div class="container">
+    <div class="section-eyebrow">Incluse în ebook-urile pachetului</div>
+    <h2>33 de bonusuri practice. <em>Le ai deja în ebook-uri.</em></h2>
+    <p class="subtitle">Ghiduri, metode, formule, exemple și checklist-uri pe care le găsești în capitolele ebook-urilor. Toate cele 33 de bonusuri de mai jos sunt incluse în conținutul lor, cu acces odată cu pachetul.</p>
+    <div class="bonuses-grid">
+      <div class="bonus-card">
+        <h3>🔍 Produse și furnizori</h3>
+        <ol start="1">
+          <li data-bonus-number="1"><strong>Metodă de validare a cererii</strong><span>Cum folosești favoritele și mesajele pentru a testa interesul înainte să mărești stocul.</span></li>
+          <li data-bonus-number="2"><strong>Ghid de analiză a concurenței</strong><span>Cum compari oferta existentă și identifici produse cu mai puțini vânzători.</span></li>
+          <li data-bonus-number="3"><strong>Selecție de branduri și categorii</strong><span>Exemple de branduri și tipuri de produse analizate în ebook.</span></li>
+          <li data-bonus-number="4"><strong>Checklist pentru autenticitate</strong><span>Detalii de verificat: cusături, etichete, materiale și resurse de autentificare.</span></li>
+          <li data-bonus-number="5"><strong>Ghid cu 5 surse de aprovizionare</strong><span>Opțiuni de sourcing: platforme, marketplace-uri locale și furnizori.</span></li>
+          <li data-bonus-number="6"><strong>Checklist de verificare a furnizorilor</strong><span>Cum verifici recenziile, fotografiile reale și mostrele înainte de comandă.</span></li>
+          <li data-bonus-number="7"><strong>Plan pentru prima comandă de test</strong><span>Cum începi cu o comandă mică și mărești treptat cantitatea.</span></li>
+        </ol>
+      </div>
+      <div class="bonus-card">
+        <h3>💰 Prețuri și profit</h3>
+        <ol start="8">
+          <li data-bonus-number="8"><strong>Structură de tabel pentru vânzări și profit</strong><span>Coloanele recomandate pentru achiziții, vânzări, profit și datele tranzacțiilor.</span></li>
+          <li data-bonus-number="9"><strong>Ghid de stabilire a prețului în 3 pași</strong><span>Cum folosești comparațiile de piață, starea produsului și prețul țintă.</span></li>
+          <li data-bonus-number="10"><strong>Strategie pentru marja de negociere</strong><span>Cum lași spațiu pentru oferte fără să pierzi din vedere suma dorită.</span></li>
+          <li data-bonus-number="11"><strong>Ghid de ajustare a prețului după stare</strong><span>Cum diferențiezi prețul unui articol în stare bună de unul în stare excelentă.</span></li>
+        </ol>
+      </div>
+      <div class="bonus-card">
+        <h3>📸 Listări care prezintă clar produsul</h3>
+        <ol start="12">
+          <li data-bonus-number="12"><strong>Formula titlului de anunț</strong><span>Structura brand + model + detaliu + categorie + sezon sau stil, cu exemple.</span></li>
+          <li data-bonus-number="13"><strong>Ghid de alegere a cuvintelor-cheie</strong><span>Ce detalii să incluzi în titlu: culoare, mărime, model și stil.</span></li>
+          <li data-bonus-number="14"><strong>Plan pentru 5–10 fotografii de produs</strong><span>Ordinea imaginilor: fotografia principală, detalii, unghiuri și context.</span></li>
+          <li data-bonus-number="15"><strong>Setup foto cu telefonul și lumină naturală</strong><span>Cum pregătești un fundal curat și un spațiu simplu pentru fotografiere.</span></li>
+          <li data-bonus-number="16"><strong>Formula descrierii în 4 părți</strong><span>Stare, dimensiuni, autenticitate și îndemn la acțiune, cu formulări exemplu.</span></li>
+          <li data-bonus-number="17"><strong>Ghid pentru măsurători în anunț</strong><span>Ce dimensiuni să comunici pentru a ajuta cumpărătorul să aleagă informat.</span></li>
+          <li data-bonus-number="18"><strong>Strategie de selecție a produselor pentru Bump</strong><span>Cum alegi articolele pe care să testezi promovarea plătită.</span></li>
+          <li data-bonus-number="19"><strong>Metodă de evaluare a promovării</strong><span>Cum urmărești vizualizările și vânzările după promovarea articolelor.</span></li>
+        </ol>
+      </div>
+      <div class="bonus-card">
+        <h3>📦 Ambalare și livrare</h3>
+        <ol start="20">
+          <li data-bonus-number="20"><strong>Checklist complet de ambalare</strong><span>Pașii de pregătire a coletului, de la protecția interioară până la verificarea finală.</span></li>
+          <li data-bonus-number="21"><strong>Ghid de protejare a produselor fragile</strong><span>Cum folosești folia cu bule și ambalajul potrivit pentru articole sensibile.</span></li>
+          <li data-bonus-number="22"><strong>Ghid de livrare și verificare a trackingului</strong><span>Fluxul de expediere cu transportatorii integrați și verificarea codului de urmărire.</span></li>
+        </ol>
+      </div>
+      <div class="bonus-card">
+        <h3>💬 Clienți și recenzii</h3>
+        <ol start="23">
+          <li data-bonus-number="23"><strong>Reguli de răspuns la mesaje și oferte</strong><span>Cum organizezi comunicarea rapidă și clară cu cumpărătorii.</span></li>
+          <li data-bonus-number="24"><strong>Ghid pentru gestionarea disputelor</strong><span>Cum abordezi calm situațiile în care produsul nu corespunde descrierii.</span></li>
+          <li data-bonus-number="25"><strong>Exemplu de mesaj pentru solicitarea unei recenzii</strong><span>O formulare scurtă pe care o poți adapta după finalizarea comenzii.</span></li>
+          <li data-bonus-number="26"><strong>Exemplu de bilet de mulțumire în colet</strong><span>Un mesaj simplu de personalizat pentru experiența cumpărătorului.</span></li>
+        </ol>
+      </div>
+      <div class="bonus-card">
+        <h3>📈 Organizare și scalare</h3>
+        <ol start="27">
+          <li data-bonus-number="27"><strong>Plan de reinvestire a profitului</strong><span>Cum împarți profitul între bani păstrați și inventar nou.</span></li>
+          <li data-bonus-number="28"><strong>Strategie de extindere a aprovizionării</strong><span>Când și cum să explorezi relații directe cu furnizorii en-gros.</span></li>
+          <li data-bonus-number="29"><strong>Ghid de diversificare pe alte platforme</strong><span>Direcții de explorat după Vinted: eBay, Depop și Vestiaire Collective.</span></li>
+          <li data-bonus-number="30"><strong>Metodă de lucru în sesiuni</strong><span>Cum grupezi fotografierea, listarea și expedierile pentru a economisi timp.</span></li>
+          <li data-bonus-number="31"><strong>Analiză a celor mai profitabile produse</strong><span>Cum identifici produsele și activitățile pe care să îți concentrezi efortul.</span></li>
+          <li data-bonus-number="32"><strong>Ghid cu 6 greșeli frecvente și soluțiile lor</strong><span>Exemple despre stoc, listări, fotografii, prețuri, ambalare și mesaje.</span></li>
+          <li data-bonus-number="33"><strong>Selecție de tooluri pentru organizare și fotografii</strong><span>Resurse prezentate în ebook pentru evidența vânzărilor și editarea imaginilor.</span></li>
+        </ol>
+      </div>
+    </div>
+    <p class="bonuses-note">Furnizorii îți arată de unde să cumperi. <strong>Cele 33 de bonusuri din ebook-uri te ajută să alegi, să listezi, să vinzi și să te organizezi.</strong></p>
+  </div>
+</section>
+
 <!-- STATS DIVIDER -->
 <div class="stats-divider reveal">
   <div class="container">
@@ -359,8 +459,8 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
       <div class="label">comenzi procesate de PocketSells</div>
     </div>
     <div class="divider-stat">
-      <div class="number">3</div>
-      <div class="label">ghiduri BONUS incluse gratuit</div>
+      <div class="number">33</div>
+      <div class="label">bonusuri practice incluse în ebook-uri</div>
     </div>
     <div class="divider-stat">
       <div class="number">197.89</div>
@@ -447,10 +547,10 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
   <div class="container">
     <div class="section-eyebrow" style="text-align:center;margin-bottom:10px">Investiția ta</div>
     <h2>Tot pachetul.<br><em style="color:var(--gold)">197.89 RON.</em></h2>
-    <p class="subtitle">Plată unică. Acces pe viață. Livrare instant.</p>
+    <p class="subtitle">Furnizori verificați + ebook-uri cu <strong style="color:var(--gold)">33 de bonusuri practice incluse</strong>. Plată unică. Acces pe viață. Livrare instant.</p>
     <div class="pricing-card reveal">
       <div class="pricing-header">
-        <div class="label">Produsul principal + bonusuri</div>
+        <div class="label">Furnizori + ebook-uri cu 33 de bonusuri practice</div>
         <div class="product-name">Toți Furnizorii Mei Verificați Personal</div>
       </div>
       <div class="pricing-body">
@@ -460,6 +560,7 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
           <li><span class="check gift">🎁</span> BONUS: Ghid complet eBay — vinde în toată Europa <span class="item-value bonus">GRATUIT</span></li>
           <li><span class="check gift">🎁</span> BONUS: Categorii câștigătoare 2026 + strategii preț <span class="item-value bonus">GRATUIT</span></li>
           <li><span class="check gift">🎁</span> BONUS: Template-uri anunțuri gata de folosit <span class="item-value bonus">GRATUIT</span></li>
+          <li><span class="check gift">🎁</span> 33 de bonusuri practice în ebook-uri: prețuri, produse, listări, livrare și scalare <span class="item-value bonus">INCLUSE</span></li>
           <li><span class="check">✓</span> Acces pe viață + update-uri gratuite <span class="item-value">includes</span></li>
         </ul>
         <hr class="pricing-divider">
@@ -510,8 +611,8 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
       <div class="faq-answer">Da. Ghidul și lista de furnizori sunt actualizate la zi pentru 2026. Primești update-uri gratuite ori de câte ori se schimbă ceva relevant — platforme, algoritmi, furnizori noi.</div>
     </div>
     <div class="faq-item">
-      <div class="faq-question">De ce sunt ghidurile bonus și nu vândute separat? <span class="icon">+</span></div>
-      <div class="faq-answer">Pentru că partea grea și cu adevărat valoroasă este lista de furnizori — contacte reale, testate cu bani proprii, greu de găsit singur. Ghidurile, categoriile câștigătoare și template-urile există ca să te ajute să folosești furnizorii corect de la prima zi, așa că vin gratuit, ca bonus, atunci când iei pachetul cu toți furnizorii.</div>
+      <div class="faq-question">Cum primesc cele 33 de bonusuri practice? <span class="icon">+</span></div>
+      <div class="faq-answer">Cele 33 de bonusuri sunt ghiduri, metode, formule, exemple și checklist-uri incluse direct în conținutul ebook-urilor din pachet. Le găsești în capitolele despre produse, furnizori, prețuri, listări, livrare, clienți și scalare. Primești acces la ele odată cu ebook-urile; sunt incluse în prețul pachetului.</div>
     </div>
   </div>
 </section>
@@ -520,18 +621,11 @@ footer{padding:32px 24px;border-top:1px solid var(--border);text-align:center}
 <section class="final-cta">
   <div class="container">
     <h2>197.89 RON.<br><em>La câștigul mediu din prima lună</em><br>îți recuperezi investiția de peste 6x.</h2>
-    <p>Toți furnizorii — în pachet, cu ghidurile complete primite <strong>BONUS, gratuit</strong>. Acces instant după plată.</p>
+    <p>Toți furnizorii — în pachet, cu ghidurile complete primite <strong>BONUS, gratuit, și 33 de bonusuri practice incluse în ebook-uri</strong>. De la prețul corect până la livrare și scalare. Acces instant după plată.</p>
     <a class="btn-primary" href="https://stan.store/pocketsells/p/pachetul-complet-pentru-afacerea-ta-de-reselling">
       Vreau pachetul complet — 197.89 RON →
     </a>
     <p class="final-trust">✓ Plată sigură · ✓ Acces instant · ✓ Acces pe viață</p>
-    <details class="free-ebooks">
-      <summary>Vezi cele 2 ebook-uri gratuite</summary>
-      <div class="free-ebooks-links">
-        <a href="https://stan.store/pocketsells/p/ebook-incepatori" target="_blank" rel="noopener noreferrer">Ebook pentru începători →</a>
-        <a href="https://stan.store/pocketsells/p/-ebook-de-la-0-la-primii-1000-ron" target="_blank" rel="noopener noreferrer">Ebook: De la 0 la primii 1.000 RON →</a>
-      </div>
-    </details>
   </div>
 </section>
 
